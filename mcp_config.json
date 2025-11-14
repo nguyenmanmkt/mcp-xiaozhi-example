@@ -5,6 +5,16 @@
       "command": "python",
       "args": ["-m", "calculator"]
     },
+    "local-stdio-perplexity": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "perplexity_tool"]
+    },
+    "local-stdio-gemini-summary": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "gemini_summary"]
+    },
     "remote-sse-server": {
       "type": "sse",
       "url": "https://api.example.com/sse",
