@@ -2,7 +2,7 @@ services:
   fastmcp:
     build: ./fastmcp
     container_name: fastmcp
-    command: python mcp_pipe.py
+    command: python mcp_pipe.py calculator.py perplexity.py gemini_summary.py
     env_file:
       - .env          
     volumes:
@@ -10,8 +10,19 @@ services:
       - ./fastmcp/calculator.py:/app/calculator.py
       - ./fastmcp/perplexity.py:/app/perplexity.py
       - ./fastmcp/gemini_summary.py:/app/gemini_summary.py
+    restart: unless-stopped
+  
+  getvideo:
+    build: ./fastmcp
+    container_name: getvideo
+    command: python mcp_pipe.py invidious_mcp.py 
+    env_file:
+      - .env          
+    volumes:
+      - ./fastmcp/mcp_config.json:/app/mcp_config.json
       - ./fastmcp/invidious_mcp.py:/app/invidious_mcp.py
     restart: unless-stopped
+
   xiaozhi-proxy-invidious:
     build: ./xiaozhi-proxy-invidious  
     container_name: xiaozhi-proxy-invidious
