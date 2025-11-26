@@ -7,4 +7,4 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-CMD ["python", "mcp_pipe.py"]
+CMD ["python", "mcp_pipe.py", "calculator.py"]
